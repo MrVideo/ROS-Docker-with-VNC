@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  robotics-container:
+    build:
+      context: .
+      args:
+        VNCPASSWD: ciao123
+    ports:
+      - 12345:5900
