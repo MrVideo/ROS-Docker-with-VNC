@@ -1,6 +1,22 @@
 version: '3.8'
 services:
-  robotics-container:
+  ros:
+    container_name: ros
     build:
       context: .
+    environment:
+      - DISPLAY=novnc:0.0
+    networks:
+      - rosnet
+  novnc:
+    container_name: novnc
+    image: theasp/novnc
+    environment:
+      - RUN_XTERM=no
     ports:
+      - "8080:8080"
+    networks:
+      - rosnet
+networks:
+  rosnet:
+    driver: bridge
