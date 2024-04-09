@@ -1,32 +1,59 @@
 # A better ROS Docker setup
 
-This repo contains a setup for ROS 1 which contains a lightweight desktop environment called LXDE and a VNC server to connect to it locally.
+This is a Docker Compose setup for [ROS 1](https://www.ros.org/) which lets you visualise GUIs through [noVNC](https://github.com/theasp/docker-novnc) and interact with ROS via terminal.
 
-## How to build
+## Requirements
 
-Just run the following command in your terminal:
+I highly recommend having a terminal emulator that allows for splits and tabs in order to use this setup.
 
-```
-sudo docker compose up --build
-```
+My recommendations are:
 
-## Change VNC configuration
+- For macOS users, [iTerm 2](https://iterm2.com/)
+- For Linux users, [kitty](https://sw.kovidgoyal.net/kitty/)
+- For Windows users, I'm sorry, I have absolutely no idea
 
-If you want to change the password for your VNC server, change the corresponding line in the `docker-compose.yml` file.
+You can also use any terminal emulator of your choice and [tmux](https://github.com/tmux/tmux/wiki), although it might be a bit difficult to get used to.
 
-If you want to change which port is bound to the VNC server on your host machine, change the first number in the `ports` section of the same file.
+## Start the services
 
-## How to use VNC
-
-On Linux, you can use an app like [Connections](https://apps.gnome.org/Connections/), which comes included with GNOME desktop environments.
-
-On macOS, you can simply connect to the VNC URL through Finder.
-
-On Windows, use a VNC client, there are a lot around.
-
-The URL to connect to is, by default:
+In order to start everything up, just run the following command in your terminal
 
 ```
-vnc://localhost:12345
+sudo docker compose up --build --detach
 ```
 
+You should be able to see two containers, `ros` and `novnc`, running by executing the command:
+
+```
+sudo docker ps -a
+```
+
+## Connect to noVNC instance
+
+To see your GUI applications, just navigate to the following URL:
+
+```
+http://localhost:8080/vnc.html
+```
+
+Alternatively, you can click [here](http://localhost:8080/vnc.html).
+
+## Connect a shell to the ROS container
+
+To interact via a tty with the ROS container, you can simply run this command:
+
+```
+sudo docker exec -it ros /bin/bash
+```
+
+This will attach your current terminal window to a `bash` session in the ROS Docker container, so that you can send commands to your nodes.
+
+## Stop the services
+
+When you have finished your work, you can run:
+
+```
+sudo docker compose down
+```
+
+This command will stop the two previously started containers and delete them.
