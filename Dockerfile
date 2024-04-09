@@ -12,4 +12,8 @@ RUN mkdir -p /root/catkin_ws/src && \
 # Switch to the directory and initialize the workspace 
 RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd /root/catkin_ws; catkin_make'
 
+# Switch to the catkin working directory for convenience
+WORKDIR /root/catkin_ws
+
+# Start ROS core services
 CMD ["roscore"]
