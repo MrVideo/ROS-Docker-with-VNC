@@ -12,14 +12,3 @@ RUN mkdir -p /root/catkin_ws/src && \
 # Switch to the directory and initialize the workspace 
 RUN /bin/bash -c '. /opt/ros/noetic/setup.bash; cd /root/catkin_ws; catkin_make'
 
-# Install VNC server
-ARG VNCPASSWD=helloworld
-
-ENV DEBIAN_FRONTEND=noninteractive
-
-RUN apt-get install -y x11vnc xvfb lxde-core
-
-RUN mkdir /root/.vnc && \
-	x11vnc -storepasswd $VNCPASSWD /root/.vnc/passwd
-
-CMD ["x11vnc", "-forever", "-usepw", "-create"]
