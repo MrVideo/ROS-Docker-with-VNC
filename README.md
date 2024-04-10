@@ -2,6 +2,8 @@
 
 This is a Docker Compose setup for [ROS 1](https://www.ros.org/) which lets you visualise GUIs through [noVNC](https://github.com/theasp/docker-novnc) and interact with ROS via terminal.
 
+I also took the liberty to install a Neovim instance with my configs and `clangd` for LSP support when using ROS.
+
 ## Requirements
 
 I highly recommend having a terminal emulator that allows for splits and tabs in order to use this setup.
