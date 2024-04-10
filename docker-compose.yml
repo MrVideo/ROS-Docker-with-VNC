@@ -8,6 +8,8 @@ services:
       - DISPLAY=novnc:0.0
     networks:
       - rosnet
+    volumes:
+      - rosvol:/root/robotics/
   novnc:
     container_name: novnc
     image: theasp/novnc
@@ -17,6 +19,10 @@ services:
       - "8080:8080"
     networks:
       - rosnet
+
 networks:
   rosnet:
     driver: bridge
+
+volumes:
+  rosvol:
