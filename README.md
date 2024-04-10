@@ -18,7 +18,7 @@ My recommendations are:
 
 You can also use any terminal emulator of your choice and [tmux](https://github.com/tmux/tmux/wiki), although it might be a bit difficult to get used to.
 
-## Start the services
+## First run
 
 In order to start everything up, just run the following command in your terminal
 
@@ -30,6 +30,14 @@ You should be able to see two containers, `ros` and `novnc`, running by executin
 
 ```
 sudo docker ps -a
+```
+
+## Later spins
+
+If you've already built the image, just run the following command to start the containers:
+
+```
+sudo docker compose up -d
 ```
 
 ## Connect to noVNC instance
