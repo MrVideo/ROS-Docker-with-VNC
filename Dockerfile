@@ -60,7 +60,7 @@ RUN cd .config && ln -s ~/arch-dotfiles/.config/nvim
 # Setup clangd with a config file in the working directory
 WORKDIR /root/robotics
 RUN echo "CompileFlags:" >> .clangd
-RUN echo "  Add: [-I/opt/ros/noetic/include, -L/opt/ros/noetic/lib]" >> .clangd
+RUN echo "  Add: [-I/opt/ros/noetic/include, -L/opt/ros/noetic/lib, -I/root/robotics/devel/include/]" >> .clangd
 
 # Start ROS core services
 CMD ["roscore"]
