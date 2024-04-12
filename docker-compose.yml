@@ -10,6 +10,7 @@ services:
       - rosnet
     volumes:
       - rosvol:/root/robotics/
+      - nvim_cache:/root/.local/share/nvim/
   novnc:
     container_name: novnc
     image: theasp/novnc
@@ -26,3 +27,4 @@ networks:
 
 volumes:
   rosvol:
+  nvim_cache:
