@@ -48,14 +48,14 @@ RUN make install
 # Move to home directory
 WORKDIR /root/
 
-# Clone configs for Neovim
-RUN git clone https://github.com/MrVideo/arch-dotfiles.git
-
 # Create .config directory
 RUN mkdir .config
 
-# Move to .config directory and link configs via symlink
-RUN cd .config && ln -s ~/arch-dotfiles/.config/nvim
+# Move to config directory
+WORKDIR /root/.config/
+
+# Clone configs for Neovim
+RUN git clone https://github.com/MrVideo/ROSNeovimConfig.git nvim
 
 # Setup clangd with a config file in the working directory
 WORKDIR /root/robotics
