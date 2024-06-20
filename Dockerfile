@@ -5,7 +5,7 @@ FROM ros:noetic-perception
 
 # Install required packages
 RUN apt-get update && \
-    apt-get install -y ros-noetic-rqt* net-tools iproute2 ros-noetic-plotjuggler* ros-noetic-foxglove-bridge ros-noetic-turtlesim
+    apt-get install -y ros-noetic-rqt* net-tools iproute2 ros-noetic-plotjuggler* ros-noetic-foxglove-bridge ros-noetic-turtlesim ros-noetic-tf* ros-noetic-stage* ros-noetic-gmapping ros-noetic-slam-toolbox* ros-noetic-move-base* ros-noetic-amcl ros-noetic-global-planner ros-noetic-dwa-local-planner ros-noetic-navfn ros-noetic-turtlebot3-* ros-noetic-teleop-twist-keyboard ros-noetic-teb-local-planner ros-noetic-rqt-action ros-noetic-pointcloud-to-laserscan 
 
 # Create catkin workspace and add it to .bashrc
 RUN mkdir -p /root/robotics/src && \
